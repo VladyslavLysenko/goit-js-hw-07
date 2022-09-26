@@ -16,11 +16,11 @@ gallery.insertAdjacentHTML("beforeend", markup)
 gallery.addEventListener("click", onClick)
 
 function onClick(e) {
-  e.preventDefault()
+  // e.preventDefault() - без превент не працює
   if (e.target.classList.contains("gallery__image")) {
     console.log(e.target);
  
-    var lightbox = new SimpleLightbox('.gallery a', {
+    const lightbox = new SimpleLightbox('.gallery a', {
       captionSelector: "img",
       captionsData: "alt",
       captionDelay: 250,

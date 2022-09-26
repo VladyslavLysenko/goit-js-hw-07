@@ -35,7 +35,7 @@ function onClick(e) {
     instance.show()
 
     const modalWindow = document.querySelector(".modal")
-    console.log(modalWindow);
+    // console.log(modalWindow);
 
     modalWindow.addEventListener("click", onClickClose);
 
@@ -48,12 +48,13 @@ function onClick(e) {
     function onClickClose() {
         instance.close()
     }
-
-  document.addEventListener("keyup", onEscClose);
+//  document.addEventListener("keydown", onEscClose); --- так працює
+  modalWindow.addEventListener("keydown", onEscClose);
   
   function onEscClose(e) {
     if (e.code === "Escape") {
-      instance.close()
+        instance.close()
+   
    }
   }
     
