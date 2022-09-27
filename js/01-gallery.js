@@ -19,12 +19,14 @@ gallerryBox.insertAdjacentHTML("beforeend", render)
 gallerryBox.addEventListener("click", onClick);
 
 function onClick(e) { 
-    e.preventDefault()
-    if (e.target === e.currentTarget) return;
+  e.preventDefault()
+  const targetImg = e.target.nodeName === 'IMG';
+  if (!targetImg) { return; }
+    // if (e.target === e.currentTarget) return;
     // const parent = e.target.closest("img");
     // console.log(parent);
     
-    const currentImage = e.target; 
+    // const currentImage = e.target; 
 // console.log(`"Current image:${currentImage.dataset.source}`);
 //     const instance = basicLightbox.create(
 //         `    
@@ -33,30 +35,31 @@ function onClick(e) {
 //         </div>`)
 
 //     instance.show()
-  
-const instance = basicLightbox.create( `<div class="modal"><img src="${currentImage.dataset.source}"/></div>`,options)
-  const options = {
+    const options = {
     onShow: () => { window.addEventListener('keydown', onEscClose); },
     onClose: () => { window.removeEventListener('keydown', onEscClose); },
   };
 
   
-    const modalWindow = document.querySelector(".modal")
+const instance = basicLightbox.create( `<div class="modal"><img src="${currentImage.dataset.source}"/></div>`,options)
+
+  
+    // const modalWindow = document.querySelector(".modal")
     // console.log(modalWindow);
 
-    modalWindow.addEventListener("click", onClickClose);
+    // modalWindow.addEventListener("click", onClickClose);
 
-    function onClickClose() {
-        instance.close()
-    }
+    // function onClickClose() {
+    //     instance.close()
+    // }
 
-   modalWindow.addEventListener("click", onClickClose);
+  //  modalWindow.addEventListener("click", onClickClose);
 
-    function onClickClose() {
-        instance.close()
-    }
+    // function onClickClose() {
+    //     instance.close()
+    // }
 //  document.addEventListener("keydown", onEscClose); --- так працює
-  modalWindow.addEventListener("keydown", onEscClose);
+  // modalWindow.addEventListener("keydown", onEscClose);
   
   function onEscClose(e) {
     if (e.code === "Escape") {

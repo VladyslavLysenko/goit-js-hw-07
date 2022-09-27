@@ -13,7 +13,7 @@ acc + `<div class="gallery__item"><a class="gallery__item" href="${item.original
 // console.log(markup);
 gallery.insertAdjacentHTML("beforeend", markup)
 
-gallery.addEventListener("click", onClick)
+// gallery.addEventListener("click", onClick)
 
 // function onClick(e) {
 //   // e.preventDefault() - без превент не працює
