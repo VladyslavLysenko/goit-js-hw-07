@@ -26,14 +26,21 @@ function onClick(e) {
     
     const currentImage = e.target; 
 // console.log(`"Current image:${currentImage.dataset.source}`);
-    const instance = basicLightbox.create(
-        `    
-<div class="modal">
-        <img src="${currentImage.dataset.source}"/>
-        </div>`)
+//     const instance = basicLightbox.create(
+//         `    
+// <div class="modal">
+//         <img src="${currentImage.dataset.source}"/>
+//         </div>`)
 
-    instance.show()
+//     instance.show()
+  
+const instance = basicLightbox.create( `<div class="modal"><img src="${currentImage.dataset.source}"/></div>`,options)
+  const options = {
+    onShow: () => { window.addEventListener('keydown', onEscClose); },
+    onClose: () => { window.removeEventListener('keydown', onEscClose); },
+  };
 
+  
     const modalWindow = document.querySelector(".modal")
     // console.log(modalWindow);
 

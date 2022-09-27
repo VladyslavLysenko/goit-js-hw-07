@@ -15,10 +15,10 @@ gallery.insertAdjacentHTML("beforeend", markup)
 
 gallery.addEventListener("click", onClick)
 
-function onClick(e) {
-  // e.preventDefault() - без превент не працює
-  if (e.target.classList.contains("gallery__image")) {
-    console.log(e.target);
+// function onClick(e) {
+//   // e.preventDefault() - без превент не працює
+//   if (e.target.classList.contains("gallery__image")) {
+//     console.log(e.target);
  
     const lightbox = new SimpleLightbox('.gallery a', {
       captionSelector: "img",
@@ -28,5 +28,5 @@ function onClick(e) {
       // caption: true,
     });
     
-  }
-}
+  // }
+// }
