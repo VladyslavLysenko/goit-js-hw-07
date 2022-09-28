@@ -22,44 +22,22 @@ function onClick(e) {
   e.preventDefault()
   const targetImg = e.target.nodeName === 'IMG';
   if (!targetImg) { return; }
-    // if (e.target === e.currentTarget) return;
-    // const parent = e.target.closest("img");
-    // console.log(parent);
-    
-    // const currentImage = e.target; 
-// console.log(`"Current image:${currentImage.dataset.source}`);
-//     const instance = basicLightbox.create(
-//         `    
-// <div class="modal">
-//         <img src="${currentImage.dataset.source}"/>
-//         </div>`)
 
-//     instance.show()
     const options = {
-    onShow: () => { window.addEventListener('keydown', onEscClose); },
-    onClose: () => { window.removeEventListener('keydown', onEscClose); },
+      onShow: () => {
+      window.addEventListener('keydown', onEscClose);
+      instance.element().querySelector('img').onclick = instance.close},
+    
+      onClose: () => {
+        window.removeEventListener('keydown', onEscClose);
+      },
   };
 
   
-const instance = basicLightbox.create( `<div class="modal"><img src="${currentImage.dataset.source}"/></div>`,options)
+const instance = basicLightbox.create( `<div class="modal"><img src="${e.target.dataset.source}"/></div>`,options)
 
-  
-    // const modalWindow = document.querySelector(".modal")
-    // console.log(modalWindow);
+// console.log(e.target);
 
-    // modalWindow.addEventListener("click", onClickClose);
-
-    // function onClickClose() {
-    //     instance.close()
-    // }
-
-  //  modalWindow.addEventListener("click", onClickClose);
-
-    // function onClickClose() {
-    //     instance.close()
-    // }
-//  document.addEventListener("keydown", onEscClose); --- так працює
-  // modalWindow.addEventListener("keydown", onEscClose);
   
   function onEscClose(e) {
     if (e.code === "Escape") {
@@ -67,9 +45,9 @@ const instance = basicLightbox.create( `<div class="modal"><img src="${currentIm
    
    }
   }
+  
+    instance.show()
     
-// console.log(e.target.nodeName);
-// console.log(e.currentTarget);
 };
 
 
